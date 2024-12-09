@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castle ID Searcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .info-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+        .info-button img {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+<body>
+    <a class="info-button" href="#" onclick="showInformation()">
+        <img src="https://img.icons8.com/ios7/600/info.png" alt="Info Icon">
+        Information
+    </a>
+    <h1>Castle Searcher by ID</h1>
+    <p>Enter a Castle project ID:</p>
+    <input type="text" id="idInput" placeholder="Enter ID here">
+    <button onclick="redirectToPage()">Enter</button>
+
+    <script>
+        const baseURL = "https://castle.xyz/d/";
+
+        function redirectToPage() {
+            const id = document.getElementById('idInput').value.trim();
+            if (id.length === 9) {
+                const fullURL = baseURL + encodeURIComponent(id);
+                window.location.href = fullURL;
+            } else {
+                alert("Please enter a valid 9-character ID.");
+            }
+        }
+
+        function showInformation() {
+            alert("This tool helps you redirect to a Castle project in web using a 9-character ID. The ID can contain letters, numbers, and symbols. Please make sure it is exactly 9 characters long. in order to get a Castle project ID, you need to click the share button and look for the last 9 digits");
+        }
+    </script>
+</body>
+</html>
